@@ -29,6 +29,7 @@ public class VetorFiguras extends JFrame{
 	private int pontoAX, pontoAY, pontoBX, pontoBY, pontoCX, pontoCY;
 	private int cliquesTriangulo = 3;
 	
+	
 	/* Getters and Setters */
 	
 	public int getOriginX() {

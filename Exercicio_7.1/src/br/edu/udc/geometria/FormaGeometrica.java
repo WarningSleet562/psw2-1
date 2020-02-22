@@ -8,6 +8,7 @@ public abstract class  FormaGeometrica {
 	public abstract float largura();
 	public abstract float altura();
 	
+	
 	public float distancia(FormaGeometrica forma) {
 		return centro().distancia(forma.centro());
 	}
