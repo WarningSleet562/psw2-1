@@ -15,7 +15,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import br.edu.udc.colecao.IteradorAbstrato;
 import br.edu.udc.colecao.ListaEncadeada;
 import br.edu.udc.geometria.Ponto2D;
 
