@@ -1,12 +1,15 @@
 package br.edu.udc.formas;
 
-import java.awt.Graphics;
+import br.edu.udc.formas.manipulador.ManipuladorForma;
+import br.edu.udc.formas.manipulador.ManipuladorTriangulo;
 
 public class Triangulo implements FormaGeometrica {
 	private static final long serialVersionUID = 1L;
 	private Ponto a;
 	private Ponto b;
 	private Ponto c;
+	
+	private ManipuladorTriangulo manipulador = null;
 	
 	public Triangulo(Ponto a, Ponto b, Ponto c) {
 		this.a = a.clone();
@@ -32,6 +35,18 @@ public class Triangulo implements FormaGeometrica {
 		this.c = c.clone();
 	}
 	
+	public Ponto getA() {
+		return a;
+	}
+
+	public Ponto getB() {
+		return b;
+	}
+
+	public Ponto getC() {
+		return c;
+	}
+
 	@Override
 	public Ponto centro() {
 		return new Ponto((a.getX() + b.getX() + c.getX()) / 3, (a.getY() + b.getY() + c.getY()) / 3);
@@ -96,12 +111,11 @@ public class Triangulo implements FormaGeometrica {
 	public FormaGeometrica clone() {
 		return new Triangulo(this);
 	}
-	
-	@Override
-	public void desenhar(Graphics g) {
-		g.drawLine(a.getX(), a.getY(), b.getX(), b.getY());
-		g.drawLine(b.getX(), b.getY(), c.getX(), c.getY());
-		g.drawLine(c.getX(), c.getY(), a.getX(), a.getY());
-	}
 
+	@Override
+	public ManipuladorForma getManipulador() {
+		if (manipulador == null)
+			manipulador = new ManipuladorTriangulo(this);
+		return manipulador;
+	}
 }

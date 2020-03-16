@@ -1,10 +1,40 @@
 package br.edu.udc.formas;
 
-import java.awt.Graphics;
+import br.edu.udc.formas.manipulador.ManipuladorForma;
+import br.edu.udc.formas.manipulador.ManipuladorRetangulo;
 
 public class Retangulo implements FormaGeometrica {
 	private static final long serialVersionUID = 1L;
+	private Ponto a;
+	private Ponto b;
 	
+	private ManipuladorRetangulo manipulador = null;
+	
+	public Retangulo(Ponto a, Ponto b) {
+		this.a = a.clone();
+		this.b = b.clone();
+	}
+	
+	public Retangulo(Retangulo r) {
+		this.a = r.a.clone();
+		this.b = r.b.clone();
+	}
+	
+	public void setA(Ponto a) {
+		this.a = a.clone();
+	}
+	
+	public void setB(Ponto b) {
+		this.b = b;
+	}
+	
+	public Ponto getA() {
+		return a;
+	}
+
+	public Ponto getB() {
+		return b;
+	}
 
 	@Override
 	public Ponto centro() {
@@ -43,6 +73,11 @@ public class Retangulo implements FormaGeometrica {
 	}
 	
 	@Override
+	public String toString() {
+		return String.format("A: [%d, %d] / B: [%d, %d]", a.getX(), a.getY(), b.getX(), b.getY());
+	}
+	
+	@Override
 	public String getNome() {
 		return "Retangulo";
 	}
@@ -61,13 +96,12 @@ public class Retangulo implements FormaGeometrica {
 
 	@Override
 	public FormaGeometrica clone() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Retangulo(this);
 	}
 	
-	@Override
-	public void desenhar(Graphics g) {
-		
+	public ManipuladorForma getManipulador() {
+		if (manipulador == null)
+			manipulador = new ManipuladorRetangulo(this);
+		return manipulador;
 	}
-
 }

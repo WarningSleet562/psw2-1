@@ -1,7 +1,8 @@
 package br.edu.udc.formas;
 
-import java.awt.Graphics;
 import java.io.Serializable;
+
+import br.edu.udc.formas.manipulador.ManipuladorForma;
 
 public interface FormaGeometrica extends Serializable {
 
@@ -20,5 +21,5 @@ public interface FormaGeometrica extends Serializable {
 	 
 	FormaGeometrica clone();
 	
-	void desenhar(Graphics g);
+	public ManipuladorForma getManipulador();
 }
