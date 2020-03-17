@@ -10,9 +10,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import br.edu.udc.formas.Circulo;
 import br.edu.udc.formas.Linha;
 import br.edu.udc.formas.Ponto;
 import br.edu.udc.formas.Retangulo;
+import br.edu.udc.formas.RetanguloRotavel;
 import br.edu.udc.formas.Triangulo;
 
 public class JanelaAplicacao extends JFrame {
@@ -80,6 +82,24 @@ public class JanelaAplicacao extends JFrame {
 			}
 		});
 		mnFiguras.add(mntmRetangulo);
+		
+		JMenuItem mntmRetanguloRotavel = new JMenuItem("Retangulo Rotável");
+		mntmRetanguloRotavel.setMnemonic('O');
+		mntmRetanguloRotavel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				painel.formaAtual(new RetanguloRotavel(new Ponto(-1, -1), new Ponto(-1, -1), new Ponto(-1, -1), new Ponto(-1, -1)));
+			}
+		});
+		mnFiguras.add(mntmRetanguloRotavel);
+		
+		JMenuItem mntmCirculo = new JMenuItem("Circulo");
+		mntmCirculo.setMnemonic('C');
+		mntmCirculo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				painel.formaAtual(new Circulo(new Ponto(-1, -1), new Ponto(-1, -1)));
+			}
+		});
+		mnFiguras.add(mntmCirculo);
 	}
 
 }

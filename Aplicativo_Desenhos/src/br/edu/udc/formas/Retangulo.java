@@ -38,8 +38,7 @@ public class Retangulo implements FormaGeometrica {
 
 	@Override
 	public Ponto centro() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Ponto((a.getX() + b.getX()) / 2, (a.getY() + b.getY()) / 2);
 	}
 
 	@Override
